@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Running Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="dashboard.css">
+	<script src="Dependencies/plotly-2.20.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+	<header>
+		<h1>Preston's Running Dashboard</h1>
+		<img src="profile.jpg" alt="Profile Picture">
+		<video src="background.mp4" autoplay loop muted></video>
+	</header>
+
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'high-school', 'null', false)">High School</button>
+		<button class="tablinks" onclick="openTab(event, 'college', 'null', false)">College</button>
+	</div>
+
+	<div id="high-school" class="tabcontent">
+		<h2>High School</h2>
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event1', true)">5000m (XC)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event2', true)">Event 2</button>
+		</div>
+		<div id="event1" class="subtabcontent">
+			<table id = "HighSchool5k">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>OHSAA Early Season Invitational</td>
+						<td>08/19/2017</td>
+						<td>19:28.50</td>
+						<td>70</td>
+					</tr>
+					<tr>
+						<td>Dual at the DeWine's</td>
+						<td>09/02/2017</td>
+						<td>18:32.35</td>
+						<td>51</td>
+					</tr>
+					<tr>
+						<td>Tiffin Cross Country Carnival</td>
+						<td>09/09/2017</td>
+						<td>18:43.90</td>
+						<td>107</td>
+					</tr>
+					<tr>
+						<td>Saturday Night Lights/ Centerville Stampede</td>
+						<td>09/23/2017</td>
+						<td>19:10.70</td>
+						<td>105</td>
+					</tr>
+					<tr>
+						<td>Kings Invitational Presented by Buckeye Running Company</td>
+						<td>09/26/2017</td>
+						<td>19:28.53</td>
+						<td>21</td>
+					</tr>
+					<tr>
+						<td>Neal Charske Firebird Invitational</td>
+						<td>09/30/2017</td>
+						<td>18:47.00</td>
+						<td>69</td>
+					</tr>
+					<tr>
+						<td>Eastern Cincinnati Conference Championship</td>
+						<td>10/14/2017</td>
+						<td>18:46.09</td>
+						<td>29</td>
+					</tr>
+					<tr>
+						<td>OHSAA Early Season Invitational</td>
+						<td>08/18/2018</td>
+						<td>19:02.50</td>
+						<td>168</td>
+					</tr>
+					<tr>
+						<td>Lakota East Classic</td>
+						<td>08/25/2018</td>
+						<td>18:33.20</td>
+						<td>40</td>
+					</tr>
+					<tr>
+						<td>Duel at Dewine</td>
+						<td>09/01/2018</td>
+						<td>19:59.52</td>
+						<td>34</td>
+					</tr>
+					<tr>
+						<td>Tiffin Cross Country Invitational</td>
+						<td>09/08/2018</td>
+						<td>18:27.10</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td>Cedarville Friendship Cross Country Invitational</td>
+						<td>09/15/2018</td>
+						<td>18:35.70</td>
+						<td>109</td>
+					</tr>
+					<tr>
+						<td>Saturday Night Lights IX</td>
+						<td>09/22/2018</td>
+						<td>18:26.30</td>
+						<td>201</td>
+					</tr>
+					<tr>
+						<td>Kings Invitational</td>
+						<td>09/25/2018</td>
+						<td>19:08.08</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>Neal Charske Firebird Invitational</td>
+						<td>09/29/2018</td>
+						<td>18:16.90</td>
+						<td>105</td>
+					</tr>
+					<tr>
+						<td>Ed Leas Fall Classic Invitational</td>
+						<td>10/06/2018</td>
+						<td>18:47.00</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ECC Championship</td>
+						<td>10/13/2018</td>
+						<td>18:07.80</td>
+						<td>8</td>
+					</tr>
+					<tr>
+						<td>OHSAA Early Season Invitational</td>
+						<td>08/17/2019</td>
+						<td>18:40.50</td>
+						<td>123</td>
+					</tr>
+					<tr>
+						<td>Lakota East Classic</td>
+						<td>08/24/2019</td>
+						<td>17:59.20</td>
+						<td>22</td>
+					</tr>
+					<tr>
+						<td>Dual at the DeWine's</td>
+						<td>08/31/2019</td>
+						<td>17:41.61</td>
+						<td>13</td>
+					</tr>
+					<tr>
+						<td>Mason Invitational</td>
+						<td>09/07/2019</td>
+						<td>18:13.40</td>
+						<td>131</td>
+					</tr>
+					<tr>
+						<td>Cedarville Friendship Cross Country Invitational</td>
+						<td>09/14/2019</td>
+						<td>17:56.40</td>
+						<td>88</td>
+					</tr>
+					<tr>
+						<td>Saturday Night Lights</td>
+						<td>09/21/2019</td>
+						<td>18:46.20</td>
+						<td>221</td>
+					</tr>
+					<tr>
+						<td>Kings High School Cross Country Invitational</td>
+						<td>09/24/2019</td>
+						<td>18:22.70</td>
+						<td>17</td>
+					</tr>
+					<tr>
+						<td>Neal Charske Firebird Invitational</td>
+						<td>09/28/2019</td>
+						<td>18:25.10</td>
+						<td>97</td>
+					</tr>
+					<tr>
+						<td>Ed Leas Fall Classic Invitational</td>
+						<td>10/05/2019</td>
+						<td>17:55.85</td>
+						<td>32</td>
+					</tr>
+					<tr>
+						<td>ECC XC Championships</td>
+						<td>10/12/2019</td>
+						<td>18:27.15</td>
+						<td>38</td>
+					</tr>
+					<tr>
+						<td>OHSAA District Cross Country - West Chester</td>
+						<td>10/19/2019</td>
+						<td>17:58.99</td>
+						<td>51</td>
+					</tr>
+					<tr>
+						<td>OHSAA Cross Country Regions 4, 8 & 12</td>
+						<td>10/26/2019</td>
+						<td>19:33.92</td>
+						<td>132</td>
+					</tr>
+					<tr>
+						<td>Talawanda Invitational</td>
+						<td>08/29/2020</td>
+						<td>18:17.10</td>
+						<td>17</td>
+					</tr>
+					<tr>
+						<td>Loveland XC Inivtational</td>
+						<td>09/05/2020</td>
+						<td>18:09.10</td>
+						<td>49</td>
+					</tr>
+					<tr>
+						<td>Mason Cross Country Invite Sponsored by Buckeye Running Company</td>
+						<td>09/12/2020</td>
+						<td>18:31.70</td>
+						<td>60</td>
+					</tr>
+					<tr>
+						<td>Milford XC Invitational</td>
+						<td>09/19/2020</td>
+						<td>17:03.70</td>
+						<td>29</td>
+					</tr>
+					<tr>
+						<td>Seven Hills CC Invitational</td>
+						<td>09/24/2020</td>
+						<td>18:53.50</td>
+						<td>10</td>
+					</tr>
+					<tr>
+						<td>Kings XC Invitational</td>
+						<td>10/10/2020</td>
+						<td>17:52.80</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>ECC XC Championships</td>
+						<td>10/17/2020</td>
+						<td>17:46.00</td>
+						<td>37</td>
+					</tr>
+					<tr>
+						<td>Southwest District - Voice of America</td>
+						<td>10/24/2020</td>
+						<td>17:43.70</td>
+						<td>24</td>
+					</tr>
+					<tr>
+						<td>XC Town USA Meet of Champions Presented by the Garrett Companies</td>
+						<td>11/15/2020</td>
+						<td>19:06.50</td>
+						<td>120</td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="event1-chart" style="width:600px;height:250px;"></div>
+			<script>
+				var table = document.getElementById('HighSchool5k');
+				var xAxis = [];
+				var yAxis = [];
+				for (var i = 0, row; row = table.rows[i]; i++) {
+				  for (var j = 0, col; col = row.cells[j]; j++) {
+					if (j == 1) {
+					  xAxis = xAxis.concat(col.textContent);
+					} else if (j == 2) {
+					  yAxis = yAxis.concat(col.textContent);
+					}
+				  }
+				}
+			  
+				var fastestTime = Math.min(...yAxis);
+				var slowestTime = Math.max(...yAxis);
+				var interval = (slowestTime - fastestTime) / 5; // set 5 y axis ticks
+			  
+				var layout = {
+				  yaxis: {
+					range: [fastestTime - interval, slowestTime + interval], // set y axis range with extra padding
+					dtick: interval // set interval between y axis ticks
+				  },
+				  margin: { t: 0 }
+				};
+			  
+				TESTER = document.getElementById('event1-chart');
+				Plotly.newPlot(TESTER, [{    x: xAxis,    y: yAxis  }], layout);
+			  </script>
+			  
+		</div>
+		<div id="event2" class="subtabcontent">
+			<table>
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>07/01/2015</td>
+						<td>4:10</td>
+					</tr>
+					<tr>
+						<td>08/01/2015</td>
+						<td>4:05</td>
+					</tr>
+				</tbody>
+			</table>
+			<canvas id="event2-chart"></canvas>
+		</div>
+	</div>
+
+	<div id="college" class="tabcontent">
+		<h2>College</h2>
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'college', 'event3', true)">Event 3</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event4', true)">Event 4</button>
+		</div>
+		<div id="event3" class="subtabcontent">
+			<table>
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>05/01/2019</td>
+						<td>3:50</td>
+					</tr>
+					<tr>
+						<td>06/01/2019</td>
+						<td>3:45</td>
+					</tr>
+				</tbody>
+			</table>
+			<canvas id="event3-chart"></canvas>
+	</div>
+
+	<script src="dashboard.js"></script>
+</body>
+</html>
