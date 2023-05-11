@@ -88,3 +88,8 @@ canvas {
 	margin: 20px auto;
 	display: block;
 }
+
+#scrollbar{
+	height:500px;
+	align-items: center;
+}

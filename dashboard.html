@@ -15,6 +15,7 @@
 	<div class="tab">
 		<button class="tablinks" onclick="openTab(event, 'high-school', 'null', false)">High School</button>
 		<button class="tablinks" onclick="openTab(event, 'college', 'null', false)">College</button>
+		<button class="tablinks" onclick="openTab(event, 'strava', 'null', false)">Training</button>
 	</div>
 
 	<div id="high-school" class="tabcontent">
@@ -306,7 +307,7 @@ var trace1 = {
     width: 1
   },
   hovertemplate: 'Time: %{text}<br>Date: %{x}<extra></extra>',
-  text: times.map(function(d) { return (Math.floor(d / 60)).toString().padStart(2, '0') + ':' + (d % 60).toString().padStart(2, '0'); })
+  text: times.map(function(d) { return (Math.floor(d / 60)).toString().padStart(2, '0') + ':' + ((d % 60).toPrecision(2)).toString().padStart(2, '0'); })
 };
 
 var trace2 = {
@@ -330,11 +331,19 @@ var data = [trace1, trace2];
 				// Calculate the tick values and corresponding labels
 				var tickvals = [];
 				var ticktext = [];
-				for (var i = 0; i < times.length; i++) {
-				var minutes = Math.floor(times[i] / 60);
-				var seconds = times[i] % 60;
-				tickvals.push(times[i]);
-				ticktext.push(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+
+				// Calculate the number of ticks needed
+				var numTicks = Math.ceil(times[times.length - 1] / 15);
+
+				for (var i = 0; i < numTicks; i++) {
+					// Calculate the time for the current tick
+					var tickTime = i * 15;
+					var minutes = Math.floor(tickTime / 60);
+					var seconds = tickTime % 60;
+
+					// Add the tick to the arrays
+					tickvals.push(tickTime);
+					ticktext.push(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
 				}
 
 				var layout = {
@@ -346,7 +355,7 @@ var data = [trace1, trace2];
 					title: 'Time',
 					tickvals: tickvals,
 					ticktext: ticktext,
-					dtick: 30
+					dtick: 50
 				},
 				  yaxis2: {
 					title: 'Place',
@@ -414,6 +423,13 @@ var data = [trace1, trace2];
 				</tbody>
 			</table>
 			<canvas id="event3-chart"></canvas>
+		</div>
+	</div>
+	<div id="strava" class="tabcontent">
+		<div id = "scrollbar">
+			<iframe height = '100%;' width='49%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/activity-summary/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
+			<iframe height = '100%;' width='49%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/latest-rides/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
+		</div>
 	</div>
 
 	<script src="dashboard.js"></script>
