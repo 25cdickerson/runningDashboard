@@ -65,6 +65,12 @@ img {
 	padding: 20px;
 }
 
+.subtabcontent{
+	display: flex;
+	margin: auto;
+	width: 75%;
+}
+
 table {
 	border-collapse: collapse;
 	width: 50%;
@@ -80,14 +86,18 @@ th {
 	background-color: #ddd;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+.PR {
+	padding: 10px 20px; /* add padding around the text */
+	margin-left: 10px;
+	height: 100%;
+	font-size: 24px; /* set the font size to 24 pixels */
+	font-weight: bold; /* make the text bold */
+	border: 2px solid black; /* add a white border with a thickness of 2 pixels */
+	border-radius: 10px; /* add a rounded corner of 10 pixels */
+	text-transform: uppercase; /* make the text uppercase */
+  }
 
-canvas {
-	height: 300px;
-	width: 80%;
-	margin: 20px auto;
-	display: block;
-}
+tr:nth-child(even) {background-color: #f2f2f2;}
 
 #scrollbar{
 	height:500px;
