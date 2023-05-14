@@ -22,7 +22,9 @@
 		<h2>High School</h2>
 		<div class="tab">
 			<button class="tablinks" onclick="openTab(event, 'high-school', 'event1', true)">5000m (XC)</button>
-			<button class="tablinks" onclick="openTab(event, 'high-school', 'event2', true)">Event 2</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event2', true)">3200m (Indoor)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event3', true)">1600m (Indoor)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event4', true)">3200m (Outdoor)</button>
 		</div>
 		<div id="event1" class="subtabcontent">
 			<table id = "event1Table">
@@ -269,35 +271,194 @@
 			<div id="event1-chart" style="width:100%;height:auto;display:block;"></div>			  
 		</div>
 		<div id="event2" class="subtabcontent">
-			<table>
+			<table id = "event2Table">
 				<thead>
 					<tr>
+						<th>Meet Name</th>
 						<th>Date</th>
 						<th>Time (MM:SS)</th>
+						<th>Place</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>07/01/2015</td>
-						<td>4:10</td>
+						<td>Sid Sink High School Open</td>
+						<td>01/20/2018</td>
+						<td>12:22.85</td>
+						<td>18</td>
 					</tr>
 					<tr>
-						<td>08/01/2015</td>
-						<td>4:05</td>
+						<td>Cedarville Richey Tune-up</td>
+						<td>02/03/2018</td>
+						<td>11:57.32</td>
+						<td>29</td>
+					</tr>
+					<tr>
+						<td>Cedarville Richey Tune-up</td>
+						<td>02/02/2019</td>
+						<td>11:31.83</td>
+						<td>18</td>
+					</tr>
+					<tr>
+						<td>Rubber City Open</td>
+						<td>03/16/2019</td>
+						<td>11:11.40</td>
+						<td>53</td>
+					</tr>
+					<tr>
+						<td>Ohio State University Buckeye High School Qualifier #1</td>
+						<td>01/11/2020</td>
+						<td>11:22.91</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>Sid Sink High School Open</td>
+						<td>01/18/2020</td>
+						<td>11:14.21</td>
+						<td>10</td>
+					</tr>
+					<tr>
+						<td>Cedarville Richey Tune-up</td>
+						<td>02/08/2020</td>
+						<td>11:12.17</td>
+						<td>15</td>
+					</tr>
+					<tr>
+						<td>Akron Rubber City Open</td>
+						<td>02/22/2020</td>
+						<td>11:00.56</td>
+						<td>51</td>
 					</tr>
 				</tbody>
 			</table>
-			<canvas id="event2-chart"></canvas>
+			<h3 id = "event2PR" class = "PR">PR</h3>
+			<div id="event2-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event3" class="subtabcontent">
+			<table id = "event3Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Sid Sink High School Open</td>
+						<td>01/20/2018</td>
+						<td>5:36.49</td>
+						<td>52</td>
+					</tr>
+					<tr>
+						<td>Cedarville Richey Tune-up</td>
+						<td>02/03/2018</td>
+						<td>5:29.52</td>
+						<td>150</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event3PR" class = "PR">PR</h3>
+			<div id="event3-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event4" class="subtabcontent">
+			<table id = "event4Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Kings Senior Nigh Quad</td>
+						<td>04/24/2018</td>
+						<td>11:28.29</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>Kings Invite</td>
+						<td>05/01/2018</td>
+						<td>11:19.49</td>
+						<td>13</td>
+					</tr>
+					<tr>
+						<td>Kings Quad Meet</td>
+						<td>04/23/2019</td>
+						<td>11:34.54</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>JV ECC Championships</td>
+						<td>05/11/2019</td>
+						<td>11:31.19</td>
+						<td>9</td>
+					</tr>
+					<tr>
+						<td>Little Miami HS Quad</td>
+						<td>04/06/2021</td>
+						<td>11:13.40</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>Kings Senior Night Quad</td>
+						<td>04/19/2021</td>
+						<td>10:51.60</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Lakota West Invitational</td>
+						<td>04/21/2021</td>
+						<td>10:45.83</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>Kings High School Invitational</td>
+						<td>04/27/2021</td>
+						<td>10:59.36</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>Loveland Invitational</td>
+						<td>04/30/2021</td>
+						<td>10:48.39</td>
+						<td>9</td>
+					</tr>
+					<tr>
+						<td>Firebird Invitational</td>
+						<td>05/06/2021</td>
+						<td>10:49.44</td>
+						<td>17</td>
+					</tr>
+					<tr>
+						<td>ECC League Championship</td>
+						<td>05/12/2021</td>
+						<td>10:49.32</td>
+						<td>15</td>
+					</tr>
+					<tr>
+						<td>OHSAA Division 1 District - Mason</td>
+						<td>05/19/2021</td>
+						<td>10:51.92</td>
+						<td>19</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event4PR" class = "PR">PR</h3>
+			<div id="event4-chart" style="width:100%;height:auto;display:block;"></div>	
 		</div>
 	</div>
 
 	<div id="college" class="tabcontent">
 		<h2>College</h2>
 		<div class="tab">
-			<button class="tablinks" onclick="openTab(event, 'college', 'event3', true)">Event 3</button>
-			<button class="tablinks" onclick="openTab(event, 'college', 'event4', true)">Event 4</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event..1', true)">Event 3</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event..2', true)">Event 4</button>
 		</div>
-		<div id="event3" class="subtabcontent">
+		<div id="event..1" class="subtabcontent">
 			<table>
 				<thead>
 					<tr>
@@ -316,13 +477,13 @@
 					</tr>
 				</tbody>
 			</table>
-			<canvas id="event3-chart"></canvas>
+			<canvas id="event..1-chart"></canvas>
 		</div>
 	</div>
 	<div id="strava" class="tabcontent">
 		<div id = "scrollbar">
-			<iframe height = '100%;' width='49%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/activity-summary/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
 			<iframe height = '100%;' width='49%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/latest-rides/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
+			<iframe height = '100%;' width='49%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/activity-summary/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
 		</div>
 	</div>
 
