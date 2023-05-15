@@ -8,23 +8,26 @@
 <body>
 	<header>
 		<h1>Preston's Running Dashboard</h1>
-		<img src="profile.jpg" alt="Profile Picture">
+		<img id="Profile" src="profile.jpg" alt="Profile Picture">
 		<video src="background.mp4" autoplay loop muted></video>
 	</header>
 
 	<div class="tab">
-		<button class="tablinks" onclick="openTab(event, 'high-school', 'null', false)">High School</button>
-		<button class="tablinks" onclick="openTab(event, 'college', 'null', false)">College</button>
-		<button class="tablinks" onclick="openTab(event, 'strava', 'null', false)">Training</button>
+		<button id="kingsButton" class="tablinks" onclick="openTab(event, 'high-school', 'null', false)"></button>
+		<button id="centreButton" class="tablinks" onclick="openTab(event, 'college', 'null', false)"></button>
+		<button id="stravaButton" class="tablinks" onclick="openTab(event, 'strava', 'null', false)"></button>
 	</div>
 
 	<div id="high-school" class="tabcontent">
-		<h2>High School</h2>
+		<h2>Kings High School</h2>
 		<div class="tab">
-			<button class="tablinks" onclick="openTab(event, 'high-school', 'event1', true)">5000m (XC)</button>
-			<button class="tablinks" onclick="openTab(event, 'high-school', 'event2', true)">3200m (Indoor)</button>
-			<button class="tablinks" onclick="openTab(event, 'high-school', 'event3', true)">1600m (Indoor)</button>
-			<button class="tablinks" onclick="openTab(event, 'high-school', 'event4', true)">3200m (Outdoor)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event1', true)">5k (XC)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event2', true)">3200m (In)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event3', true)">1600m (In)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event4', true)">3200m (O)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event5', true)">1600m (O)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event6', true)">2k Steeple (O)</button>
+			<button class="tablinks" onclick="openTab(event, 'high-school', 'event7', true)">3k Steeple (O)</button>
 		</div>
 		<div id="event1" class="subtabcontent">
 			<table id = "event1Table">
@@ -329,6 +332,12 @@
 						<td>11:00.56</td>
 						<td>51</td>
 					</tr>
+					<tr>
+						<td>Louisville Indoor Games</td>
+						<td>02/27/2021</td>
+						<td>11:15.69</td>
+						<td>48</td>
+					</tr>
 				</tbody>
 			</table>
 			<h3 id = "event2PR" class = "PR">PR</h3>
@@ -450,34 +459,399 @@
 			<h3 id = "event4PR" class = "PR">PR</h3>
 			<div id="event4-chart" style="width:100%;height:auto;display:block;"></div>	
 		</div>
-	</div>
-
-	<div id="college" class="tabcontent">
-		<h2>College</h2>
-		<div class="tab">
-			<button class="tablinks" onclick="openTab(event, 'college', 'event..1', true)">Event 3</button>
-			<button class="tablinks" onclick="openTab(event, 'college', 'event..2', true)">Event 4</button>
-		</div>
-		<div id="event..1" class="subtabcontent">
-			<table>
+		<div id="event5" class="subtabcontent">
+			<table id = "event5Table">
 				<thead>
 					<tr>
+						<th>Meet Name</th>
 						<th>Date</th>
 						<th>Time (MM:SS)</th>
+						<th>Place</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>05/01/2019</td>
-						<td>3:50</td>
+						<td>Kings High School Senior Night</td>
+						<td>04/24/2018</td>
+						<td>5:09.09</td>
+						<td>9</td>
 					</tr>
 					<tr>
-						<td>06/01/2019</td>
-						<td>3:45</td>
+						<td>Jack Lintz Northmont Invitational</td>
+						<td>03/30/2019</td>
+						<td>5:13.90</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td>Kings Quad Meet</td>
+						<td>04/23/2019</td>
+						<td>5:09.20</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>Kings High School Invitational</td>
+						<td>04/30/2019</td>
+						<td>5:01.80</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>JV ECC Championships</td>
+						<td>05/11/2019</td>
+						<td>4:58.38</td>
+						<td>5</td>
 					</tr>
 				</tbody>
 			</table>
-			<canvas id="event..1-chart"></canvas>
+			<h3 id = "event5PR" class = "PR">PR</h3>
+			<div id="event5-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event6" class="subtabcontent">
+			<table id = "event6Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Centerville Elk Relays</td>
+						<td>04/16/2021</td>
+						<td>7:24.71</td>
+						<td>13</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event6PR" class = "PR">PR</h3>
+			<div id="event6-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event7" class="subtabcontent">
+			<table id = "event7Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Anderson Invitational</td>
+						<td>04/22/2021</td>
+						<td>11:19.09</td>
+						<td>18</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event7PR" class = "PR">PR</h3>
+			<div id="event7-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+	</div>
+
+	<div id="college" class="tabcontent">
+		<h2>Centre College</h2>
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'college', 'event8', true)">5k (XC)</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event9', true)">6k (XC)</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event10', true)">8k (XC)</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event11', true)">3k (In)</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event12', true)">5k (In)</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event13', true)">5k (O)</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event14', true)">3k Steeple (O)</button>
+			<button class="tablinks" onclick="openTab(event, 'college', 'event15', true)">Mile (O)</button>
+		</div>
+		<div id="event8" class="subtabcontent">
+			<table id = "event8Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>5th Annual BC/CC Jamboree</td>
+						<td>09/03/2021</td>
+						<td>17:35.10</td>
+						<td>44</td>
+					</tr>
+					<tr>
+						<td>6th Annual BC/CC Jamboree</td>
+						<td>09/02/2022</td>
+						<td>17:30.70</td>
+						<td>32</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event8PR" class = "PR">PR</h3>
+			<div id="event8-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event9" class="subtabcontent">
+			<table id = "event9Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Hanover XC Invitational 2021</td>
+						<td>09/11/2021</td>
+						<td>22:10.70</td>
+						<td>33</td>
+					</tr>
+					<tr>
+						<td>Hanover XC Invitational 2022</td>
+						<td>09/10/2022</td>
+						<td>21:44.30</td>
+						<td>27</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event9PR" class = "PR">PR</h3>
+			<div id="event9-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event10" class="subtabcontent">
+			<table id = "event10Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2021 MSJ Run with the Lions</td>
+						<td>09/17/2021</td>
+						<td>30:56.60</td>
+						<td>33</td>
+					</tr>
+					<tr>
+						<td>Louisville Classic</td>
+						<td>10/01/2021</td>
+						<td>29:50.50</td>
+						<td>292</td>
+					</tr>
+					<tr>
+						<td>Jenna Strong CC Fall Classic</td>
+						<td>10/15/2021</td>
+						<td>29:42.50</td>
+						<td>183</td>
+					</tr>
+					<tr>
+						<td>Southern Athletic Association Championships</td>
+						<td>10/30/2021</td>
+						<td>30:11.20</td>
+						<td>62</td>
+					</tr>
+					<tr>
+						<td>NCAA Division III Great Lakes Region Cross Country Championships</td>
+						<td>11/13/2021</td>
+						<td>29:31.40</td>
+						<td>230</td>
+					</tr>
+					<tr>
+						<td>Rhodes Cross Country Invitational</td>
+						<td>09/17/2022</td>
+						<td>29:09.10</td>
+						<td>61</td>
+					</tr>
+					<tr>
+						<td>2022 DIII National Preview</td>
+						<td>10/01/2022</td>
+						<td>29:07.50</td>
+						<td>259</td>
+					</tr>
+					<tr>
+						<td>Oberlin College Inter-Regional Rumble</td>
+						<td>10/15/2022</td>
+						<td>27:51.80</td>
+						<td>65</td>
+					</tr>
+					<tr>
+						<td>2022 SAA Cross Country Championships</td>
+						<td>10/29/2022</td>
+						<td>28:36.40</td>
+						<td>39</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event10PR" class = "PR">PR</h3>
+			<div id="event10-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event11" class="subtabcontent">
+			<table id = "event11Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Bellarmine Open</td>
+						<td>01/21/2022</td>
+						<td>9:58.14</td>
+						<td>44</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event11PR" class = "PR">PR</h3>
+			<div id="event11-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event12" class="subtabcontent">
+			<table id = "event12Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Wittenberg Invite</td>
+						<td>02/19/2022</td>
+						<td>17:21.54</td>
+						<td>31</td>
+					</tr>
+					<tr>
+						<td>Wittenberg Collegiate Invite</td>
+						<td>02/18/2023</td>
+						<td>16:46.42</td>
+						<td>19</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event12PR" class = "PR">PR</h3>
+			<div id="event12-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event13" class="subtabcontent">
+			<table id = "event13Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Victor Ice Breaker Duals 2022</td>
+						<td>03/05/2022</td>
+						<td>17:31.57</td>
+						<td>36</td>
+					</tr>
+					<tr>
+						<td>Rhodes College Track & Field Invitational</td>
+						<td>03/18/2022</td>
+						<td>16:56.10</td>
+						<td>39</td>
+					</tr>
+					<tr>
+						<td>Victor Ice Breaker Duals 2023</td>
+						<td>03/04/2023</td>
+						<td>16:42.33</td>
+						<td>51</td>
+					</tr>
+					<tr>
+						<td>Gordon Bocock Cumberlands Invitational & Distance Festival</td>
+						<td>04/01/2023</td>
+						<td>16:20.38</td>
+						<td>13</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event13PR" class = "PR">PR</h3>
+			<div id="event13-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event14" class="subtabcontent">
+			<table id = "event14Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Landon Bond Invitational</td>
+						<td>04/02/2022</td>
+						<td>11:05.13</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>Berry Field Day Invitational 2022</td>
+						<td>04/15/2022</td>
+						<td>10:46.19</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>SAA Outdoor Track & Field Championships</td>
+						<td>04/29/2022</td>
+						<td>10:52.78</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td>55th Annual Centre College Track & Field Invitational</td>
+						<td>04/01/2023</td>
+						<td>10:54.58</td>
+						<td>13</td>
+					</tr>
+					<tr>
+						<td>Centre College Track & Field Twilight</td>
+						<td>04/14/2023</td>
+						<td>10:34.61</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>SAA Track & Field Championships</td>
+						<td>04/28/2023</td>
+						<td>10:32.02</td>
+						<td>11</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event14PR" class = "PR">PR</h3>
+			<div id="event14-chart" style="width:100%;height:auto;display:block;"></div>	
+		</div>
+		<div id="event15" class="subtabcontent">
+			<table id = "event15Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Rhodes College Track & Field Invitational</td>
+						<td>03/19/2022</td>
+						<td>4:58.12</td>
+						<td>25</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event15PR" class = "PR">PR</h3>
+			<div id="event15-chart" style="width:100%;height:auto;display:block;"></div>	
 		</div>
 	</div>
 	<div id="strava" class="tabcontent">
