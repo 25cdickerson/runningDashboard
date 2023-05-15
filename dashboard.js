@@ -21,11 +21,15 @@ function openTab(evt, tabName, subTabName,  isInnerTab) {
 	}
 
 	// Show the current tab, and add an "active" class to the button that opened the tab
-	if(subTabName != "null"){
-		createGraph(subTabName, subTabName + "Table")
-	}
 	document.getElementById(tabName).style.display = "block";
-	document.getElementById(subTabName).style.display = "flex";
+	if(subTabName != "null"){
+		createGraph(subTabName, subTabName + "Table");
+		document.getElementById(subTabName).style.display = "flex";
+	}
+
+	if(tabName == 'strava'){
+		getLatestActivity();
+	}
 	evt.currentTarget.className += " active";
 }
 
@@ -136,4 +140,50 @@ function createGraph(subTabName, tableID){
 	var graph = Plotly.newPlot(subTabName + '-chart', data, layout);
 
 	document.querySelector('[data-title="Autoscale"]').click()
+}
+
+
+function getLatestActivity() {
+	var StravaApiV3 = require('strava_api_v3');
+	var defaultClient = StravaApiV3.ApiClient.instance;
+
+	// Configure OAuth2 access token for authorization: strava_oauth
+	var strava_oauth = defaultClient.authentications['7832a932d1f19f6939f9b7d104511402dec85af9'];
+
+	// Update the access token using the refresh token
+	var stravaRefreshToken = "0dfcf1ff89233b7d2ccf5f248f50b087d5ce1734";
+	var authApi = new StravaApiV3.AuthenticationApi();
+	var opts = {
+	'clientId': "104478",
+	'clientSecret': "e4e2e01761772413c752cd7af1d3e5ad0e2f1e25",
+	'grantType': "refresh_token",
+	'refreshToken': stravaRefreshToken
+	};
+
+	authApi.getToken(opts, function(error, data, response) {
+	if (error) {
+		console.error(error);
+	} else {
+		// Update the access token with the new value
+		strava_oauth.accessToken = data.access_token;
+
+		// Use the updated access token for API calls
+		var api = new StravaApiV3.ActivitiesApi();
+		var opts = { 
+		'page': 1, // Specify the page number (defaults to 1)
+		'perPage': 1 // Specify the number of items per page (set to 1 for only the most recent activity)
+		};
+
+		var callback = function(error, data, response) {
+		if (error) {
+			console.error(error);
+		} else {
+			console.log('API called successfully. Returned data: ' + data);
+		}
+		};
+
+		api.getLoggedInAthleteActivities(opts, callback);
+	}
+	});
+
 }
