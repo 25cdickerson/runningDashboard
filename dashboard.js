@@ -142,9 +142,8 @@ function createGraph(subTabName, tableID){
 	document.querySelector('[data-title="Autoscale"]').click()
 }
 
-
 function getLatestActivity() {
-	var StravaApiV3 = require('strava_api_v3');
+	var StravaApiV3 = require('strava');
 	var defaultClient = StravaApiV3.ApiClient.instance;
 
 	// Configure OAuth2 access token for authorization: strava_oauth
