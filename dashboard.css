@@ -226,8 +226,26 @@ header video {
 }
 
 footer{
-	background-color: black;
-	color: white;
+	position: fixed; 
+	bottom: 0; 
+	display:flex; 
+	background-color: rgba(255, 255, 0, 0.5);
+	color: black;
 	width: 100%;
-	text-align: center;
+	justify-content: center;
+}
+
+@media(max-width: 1350px) {
+	.subtabcontent{
+		display: flex;
+		flex-flow: column;
+	}
+
+	table{
+		width: 100%;
+	}
+
+	.chart{
+		width: 100%;
+	}
 }
