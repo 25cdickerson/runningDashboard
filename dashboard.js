@@ -64,7 +64,7 @@ function createGraph(subTabName, tableID){
 	if(pr.charAt(4) == '.'){
 		pr = pr.substring(0, 3) + '0' + pr.substring(3, pr.length);
 	}
-	document.getElementById(subTabName + "PR").innerHTML = "PR: " + pr;
+	document.getElementById(subTabName + "PR").innerHTML = "PR: ⚡" + pr;
 	// Create the plot
 	var trace1 = {
 	x: dates,
