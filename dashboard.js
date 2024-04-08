@@ -33,6 +33,12 @@ function openTab(evt, tabName, subTabName,  isInnerTab) {
 	evt.currentTarget.className += " active";
 }
 
+function fmtMSS(s) {
+	var minutes = Math.floor(s / 60);
+	var seconds = s % 60;
+	return minutes + ":" + seconds.toFixed(2).padStart(5, "0");
+  }
+
 function createGraph(subTabName, tableID){
 	// Extract the data from the table
 	console.log(tableID);
@@ -60,10 +66,7 @@ function createGraph(subTabName, tableID){
 
 	// Set the PR
 	var pr = times.reduce((a, b) => { return Math.min(a, b) });
-	pr = (Math.floor(pr / 60)).toString().padStart(2, '0') + ':' + ((pr % 60).toPrecision(2)).toString().padStart(2, '0');
-	if(pr.charAt(4) == '.'){
-		pr = pr.substring(0, 3) + '0' + pr.substring(3, pr.length);
-	}
+	pr = fmtMSS(pr)
 	document.getElementById(subTabName + "PR").innerHTML = "PR: ⚡" + pr;
 	// Create the plot
 	var trace1 = {
