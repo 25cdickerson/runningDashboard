@@ -33,6 +33,7 @@ function openTab(evt, tabName, subTabName,  isInnerTab) {
 	evt.currentTarget.className += " active";
 }
 
+// Seconds to minutes
 function fmtMSS(s) {
 	var minutes = Math.floor(s / 60);
 	var seconds = s % 60;
@@ -68,6 +69,7 @@ function createGraph(subTabName, tableID){
 	var pr = times.reduce((a, b) => { return Math.min(a, b) });
 	pr = fmtMSS(pr)
 	document.getElementById(subTabName + "PR").innerHTML = "PR: ⚡" + pr;
+	
 	// Create the plot
 	var trace1 = {
 	x: dates,
