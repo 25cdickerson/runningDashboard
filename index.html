@@ -17,6 +17,7 @@
 	<div class="tab">
 		<button id="kingsButton" class="tablinks" onclick="openTab(event, 'high-school', 'null', false)"></button>
 		<button id="centreButton" class="tablinks" onclick="openTab(event, 'college', 'null', false)"></button>
+		<button id="unattachedButton" class="tablinks" onclick="openTab(event, 'unattached', 'null', false)"></button>
 		<button id="stravaButton" class="tablinks" onclick="openTab(event, 'strava', 'null', false)"></button>
 	</div>
 
@@ -969,12 +970,45 @@
 			<div id="event16-chart" class="chart"></div>	
 		</div>
 	</div>
+	<div id="unattached" class="tabcontent">
+		<h2>Unattached</h2>
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'unattached', 'event17', true)">3k (In)</button>
+		</div>
+		<div id="event17" class="subtabcontent">
+			<table id = "event17Table">
+				<thead>
+					<tr>
+						<th>Meet Name</th>
+						<th>Date</th>
+						<th>Time (MM:SS)</th>
+						<th>Place</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href = "https://www.tfrrs.org/results/87763/5322056/Centre_First_Chance_Indoors/Mens-3000-Meters">Centre First Chance Indoors</a></td>
+						<td>12/07/2024</td>
+						<td>9:57.24</td>
+						<td>13</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id = "event17PR" class = "PR">PR</h3>
+			<div id="event17-chart" class="chart"></div>	
+		</div>
+		</div>
+	</div>
 	<div id="strava" class="tabcontent">
 		<div id = "scrollbar">
-			<iframe height = '100%;' width='100%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.statshunters.com/share/10dbc4d4df17/heatmap'></iframe>
-			<iframe height = '100%;' width='100%' frameborder='0' allowtransparency='true' scrolling='auto' src='https://www.statshunters.com/share/10dbc4d4df17/statistics'></iframe>
-			<iframe height = '100%;' width='49%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/latest-rides/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
-			<iframe height = '100%;' width='49%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/activity-summary/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
+			<iframe width='100%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/activity-summary/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
+			<iframe height = '100%;' width='100%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/44211823/latest-rides/ba52c651dc966cf7bf343d044ce06480d3dff58d'></iframe>
+			<h2>Pinned Strava Activies</h2>
+			<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="11397559788" data-style="standard" data-from-embed="false"></div><script src="https://strava-embeds.com/embed.js"></script>
+			<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="11168475281" data-style="standard" data-from-embed="false"></div><script src="https://strava-embeds.com/embed.js"></script>
+			<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="11326248492" data-style="standard" data-from-embed="false"></div><script src="https://strava-embeds.com/embed.js"></script>
+			<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="11276329381" data-style="standard" data-from-embed="false"></div><script src="https://strava-embeds.com/embed.js"></script>
+			<div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="11276702188" data-style="standard" data-from-embed="false"></div><script src="https://strava-embeds.com/embed.js"></script>
 		</div>
 	</div>
 

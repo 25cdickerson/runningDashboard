@@ -220,6 +220,15 @@ header video {
 	margin: 10px;
 }
 
+#unattachedButton{
+	background-image: url(Logos/meme.jpg);
+	background-size: cover; 
+	background-position: center;
+	width: 150px;
+	height: 100px;
+	margin: 10px;
+}
+
 #stravaButton{
 	background-image: url(Logos/strava.png);
 	background-size: cover; 
@@ -227,6 +236,14 @@ header video {
 	width: 150px; 
 	height: 100px;
 	margin: 10px;
+}
+
+#strava {
+    display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	height: 100vh;
+	width: 100%;
 }
 
 footer{
