@@ -1,0 +1,78 @@
+<header>
+  <h1>Preston's Running Dashboard</h1>
+  <img id="Profile" src="assets/profile.jpg" alt="Profile Picture" />
+</header>
+
+<div class="tab">
+  @for (team of teams; track team.id) {
+    <button
+      class="tablinks logo-button"
+      [class.active]="activeTab() === team.id"
+      [style.background-image]="'url(' + team.logo + ')'"
+      [attr.aria-label]="team.label"
+      (click)="selectTab(team.id)"
+    ></button>
+  }
+  <button
+    class="tablinks logo-button"
+    [class.active]="activeTab() === 'strava'"
+    style="background-image: url(assets/Logos/strava.png)"
+    aria-label="Strava"
+    (click)="selectTab('strava')"
+  ></button>
+</div>
+
+@if (activeTeam(); as team) {
+  <div class="tabcontent">
+    <h2>{{ team.label }}</h2>
+
+    <div class="tab">
+      @for (ev of team.events; track ev.id) {
+        <button
+          class="tablinks"
+          [class.active]="selectedEventId() === ev.id"
+          (click)="selectEvent(ev.id)"
+        >
+          {{ ev.label }}
+        </button>
+      }
+    </div>
+
+    @if (selectedEvent()) {
+      <div class="subtabcontent">
+        <table class="table-fill">
+          <thead>
+            <tr>
+              <th>Meet Name</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Place</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (r of sortedRaces(); track r.date + r.meet) {
+              <tr>
+                <td>
+                  @if (r.url) {
+                    <a [href]="r.url" target="_blank" rel="noopener">{{ r.meet }}</a>
+                  } @else {
+                    {{ r.meet }}
+                  }
+                </td>
+                <td>{{ r.date | date: 'MM/dd/yyyy' }}</td>
+                <td>{{ r.time }}</td>
+                <td>{{ r.place }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+        <h3 class="PR">PR: ⚡{{ pr() }}</h3>
+        <div #chart class="chart"></div>
+      </div>
+    }
+  </div>
+}
+
+<div class="tabcontent strava" [class.show]="activeTab() === 'strava'">
+  <p>In Progress</p>
+</div>
