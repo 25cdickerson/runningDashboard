@@ -1,0 +1,3 @@
+[build]
+  base = "Angular/PrestonRunningDash/PrestonRunningDash"
+  publish = "dist/preston-running-dash"
