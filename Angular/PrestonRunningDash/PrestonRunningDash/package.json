@@ -11,10 +11,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.12",
+    "@angular/cdk": "^17.3.10",
     "@angular/common": "^17.3.12",
     "@angular/compiler": "^17.3.12",
     "@angular/core": "^17.3.12",
     "@angular/forms": "^17.3.12",
+    "@angular/material": "^17.3.10",
     "@angular/platform-browser": "^17.3.12",
     "@angular/platform-browser-dynamic": "^17.3.12",
     "@angular/router": "^17.3.12",
@@ -25,6 +27,7 @@
     "@modelcontextprotocol/sdk": "^1.32.1",
     "jest-editor-support": "*",
     "plotly.js-dist-min": "^4.1.2",
+    "primeng": "^17.18.15",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

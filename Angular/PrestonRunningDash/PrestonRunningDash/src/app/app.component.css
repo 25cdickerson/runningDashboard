@@ -128,6 +128,107 @@ tr:hover td a { color: #fff; }
 
 a, a:visited { color: #666b85; text-decoration: none; }
 
+.filter-expansion-panel {
+  margin-bottom: 1em;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+
+  mat-panel-title {
+    padding: 0.5em;
+  }
+
+  .filter-panel {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+
+  .filter-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+
+    label {
+      color: #374151;
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      span {
+        color: #9ca3af;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .filter-input {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 42px;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    color: #111827;
+    font-size: 0.9rem;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+
+    &:hover {
+      border-color: #9ca3af;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.13);
+      outline: none;
+    }
+  }
+
+  .filter-calendar {
+    width: 100%;
+  }
+
+  .filter-calendar .filter-input {
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .filters {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .filter-panel {
+      padding: 1rem;
+      border-radius: 12px;
+    }
+
+    .filters {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+    }
+  }
+}
+
 @media (max-width: 1350px) {
   .subtabcontent { flex-flow: column; }
   table, .chart { width: 100%; }

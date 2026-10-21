@@ -26,6 +26,98 @@
   <div class="tabcontent">
     <h2>{{ team.label }}</h2>
 
+    <mat-expansion-panel class="filter-expansion-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title> Filters </mat-panel-title>
+      </mat-expansion-panel-header>
+      <section class="filter-panel">
+      <form [formGroup]="filterForm" class="filters">
+        <div class="filter-row">
+          <label for="name">Name</label>
+          <input
+            pInputText
+            id="name"
+            formControlName="name"
+            class="filter-input"
+            placeholder="Search by name"
+          />
+        </div>
+
+        <div class="filter-row">
+          <label for="startDate">Start Date</label>
+          <p-calendar
+            inputId="startDate"
+            formControlName="startDate"
+            styleClass="filter-calendar"
+            inputStyleClass="filter-input"
+            placeholder="Select start date"
+            dateFormat="mm/dd/yy"
+            [showIcon]="true"
+            [showButtonBar]="true"
+          ></p-calendar>
+        </div>
+
+        <div class="filter-row">
+          <label for="endDate">End Date</label>
+          <p-calendar
+            inputId="endDate"
+            formControlName="endDate"
+            styleClass="filter-calendar"
+            inputStyleClass="filter-input"
+            placeholder="Select end date"
+            dateFormat="mm/dd/yy"
+            [showIcon]="true"
+            [showButtonBar]="true"
+          ></p-calendar>
+        </div>
+
+        <div class="filter-row">
+          <label for="quickerThan">Quicker Than <span>(Time)</span></label>
+          <input
+            pInputText
+            id="quickerThan"
+            formControlName="quickerThan"
+            class="filter-input"
+            placeholder="Enter maximum time"
+          />
+        </div>
+
+        <div class="filter-row">
+          <label for="slowerThan">Slower Than <span>(Time)</span></label>
+          <input
+            pInputText
+            id="slowerThan"
+            formControlName="slowerThan"
+            class="filter-input"
+            placeholder="Enter minimum time"
+          />
+        </div>
+
+        <div class="filter-row">
+          <label for="greaterThanPlace">Greater Than <span>(Place)</span></label>
+          <input
+            pInputText
+            id="greaterThanPlace"
+            formControlName="greaterThanPlace"
+            class="filter-input"
+            placeholder="Enter minimum place"
+          />
+        </div>
+
+        <div class="filter-row">
+          <label for="lessThanPlace">Less Than <span>(Place)</span></label>
+          <input
+            pInputText
+            id="lessThanPlace"
+            formControlName="lessThanPlace"
+            class="filter-input"
+            placeholder="Enter maximum place"
+          />
+        </div>
+      </form>
+    </section>
+    </mat-expansion-panel>
+
     <div class="tab">
       @for (ev of team.events; track ev.id) {
         <button

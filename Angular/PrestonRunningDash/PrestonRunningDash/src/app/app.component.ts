@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  DestroyRef,
   ElementRef,
   ViewChild,
   computed,
@@ -12,6 +13,11 @@ import * as Plotly from 'plotly.js-dist-min';
 
 import { TEAMS } from './data/races.data';
 import { Race, RaceEvent, Team, formatTime, parseTime, personalBest } from './models/race.model';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FiltersFormModel } from './models/filters-form.model';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 
 type TabId = string; // a team id or 'strava'
 
@@ -22,33 +28,75 @@ type TabId = string; // a team id or 'strava'
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  readonly teams: Team[] = TEAMS;
+  protected readonly teams: Team[] = TEAMS;
 
-  readonly activeTab = signal<TabId>(TEAMS[0].id);
-  readonly selectedEventId = signal<string | null>(TEAMS[0].events[0].id);
+  protected readonly activeTab = signal<TabId>(TEAMS[0].id);
+  
+  protected readonly selectedEventId = signal<string | null>(TEAMS[0].events[0].id);
 
-  readonly activeTeam = computed(() => this.teams.find((t) => t.id === this.activeTab()));
-  readonly selectedEvent = computed<RaceEvent | undefined>(() =>
+  protected readonly activeTeam = computed(() => this.teams.find((t) => t.id === this.activeTab()));
+  
+  protected readonly selectedEvent = computed<RaceEvent | undefined>(() =>
     this.activeTeam()?.events.find((e) => e.id === this.selectedEventId())
   );
-  readonly sortedRaces = computed<Race[]>(() => {
-    const ev = this.selectedEvent();
-    return ev ? [...ev.races].sort((a, b) => a.date.localeCompare(b.date)) : [];
+
+  protected filterForm = new FormGroup<FiltersFormModel>({
+    name: new FormControl<string | null>(''),
+    startDate: new FormControl<Date | null>(null),
+    endDate: new FormControl<Date | null>(null),
+    quickerThan: new FormControl<string | null>(''),
+    slowerThan: new FormControl<string | null>(''),
+    lessThanPlace: new FormControl<number | null>(null),
+    greaterThanPlace: new FormControl<number | null>(null),
   });
-  readonly pr = computed(() => {
+
+  private readonly filterValue = toSignal(this.filterForm.valueChanges, {
+    initialValue: this.filterForm.value
+  });
+  
+  protected readonly sortedRaces = computed<Race[]>(() => {
+    const ev = this.selectedEvent();
+    if (!ev) return [];
+
+    // Sort the base races
+    const baseRaces = [...ev.races].sort((a, b) => a.date.localeCompare(b.date));
+    const filter = this.filterValue();
+
+    // Filter them based on the current form value state
+    return baseRaces.filter((r) => {
+      const nameMatch = !filter.name || r.meet.toLowerCase().includes(filter.name.toLowerCase());
+      const startDateMatch = !filter.startDate || new Date(r.date) >= filter.startDate;
+      const endDateMatch = !filter.endDate || new Date(r.date) <= filter.endDate;
+      const quickerThanMatch = !filter.quickerThan || parseTime(r.time) < parseTime(filter.quickerThan);
+      const slowerThanMatch = !filter.slowerThan || parseTime(r.time) > parseTime(filter.slowerThan);
+      const lessThanPlaceMatch = !filter.lessThanPlace || r.place < filter.lessThanPlace;
+      const greaterThanPlaceMatch = !filter.greaterThanPlace || r.place > filter.greaterThanPlace;
+      return nameMatch && startDateMatch && endDateMatch && quickerThanMatch && slowerThanMatch && lessThanPlaceMatch && greaterThanPlaceMatch;
+    });
+  });
+  
+  protected readonly pr = computed(() => {
     const best = personalBest(this.sortedRaces());
     return best ? formatTime(parseTime(best.time)) : '';
   });
 
   @ViewChild('chart') private chartEl!: ElementRef<HTMLDivElement>;
+  
+  private readonly destroyRef = inject(DestroyRef)
 
   constructor() {
-    // Redraw whenever the chart div exists and the selected event changes.
     effect(() => {
       const el = this.chartEl?.nativeElement;
       const races = this.sortedRaces();
       if (el && races.length) this.drawChart(el, races);
     });
+
+    effect(() => {
+      const selectedEvent = this.selectedEvent();
+      if (selectedEvent) {
+        this.filterForm.reset();
+      }
+    })
   }
 
   selectTab(id: TabId): void {
